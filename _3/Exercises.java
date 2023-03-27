@@ -1,4 +1,4 @@
-package javaadvanced._3;
+package javaadvanced.javaadvanced._3;
 
 import java.util.*;
 
