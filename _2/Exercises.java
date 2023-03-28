@@ -1,4 +1,4 @@
-package javaadvanced.javaadvanced._2;
+package javaadvanced._2;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,10 +18,17 @@ public class Exercises {
         Map<Integer, String> myFirstMap = new HashMap<>();
 
         // 1b. Add 3 elements to the map .put
+        myFirstMap.put(10, "Paolo");
+        myFirstMap.put(5, "Luca");
+        myFirstMap.put(15, "Marco");
         // 1c. Print the map
+        System.out.println(myFirstMap);
         // 1d. Access an element in the map with .get
+        System.out.println(myFirstMap.get(10));
         // 1e. Remove an element from the map .remove
+        myFirstMap.remove(10);
         // 1f. Print the map again to confirm the element was removed
+        System.out.println(myFirstMap);
     }
 
     /**
@@ -42,6 +49,15 @@ public class Exercises {
         //     to do so
 
         // Your code
+
+        Double max = Double.MIN_VALUE;
+
+        for(Map.Entry<String, Double> entry : menuCostsInEuro.entrySet()){
+            if(entry.getValue()>max){
+                max = entry.getValue();
+                mostExpensiveMenuItemName=entry.getKey();
+            }
+        }
 
         if (mostExpensiveMenuItemName.equals("Pizza")) {
             System.out.println("2a. Correct!");
@@ -67,6 +83,10 @@ public class Exercises {
 
         int totalWeight = 0;
         // 3a. Use a for loop with fruitWeights.values() and sum up the total weight
+
+        for(int x : fruitWeights.values()){
+            totalWeight += x;
+        }
 
         // Your code
 

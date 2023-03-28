@@ -1,11 +1,11 @@
-package javaadvanced.javaadvanced._1;
+package javaadvanced._1;
 
 import java.util.*;
 
 public class Exercises {
 
     public static void main(String[] args) {
-        exercise1();
+        //exercise1();
         exercise2();
         exercise3();
         exercise4();
@@ -23,6 +23,12 @@ public class Exercises {
         Set<Integer> ourSet = new HashSet<>();
 
         // Add some numbers using the add method
+        ourSet.add(1);
+        ourSet.add(1);
+        ourSet.add(5);
+        ourSet.add(2);
+        ourSet.add(1);
+
         // Your code
 
         if (ourSet.containsAll(Set.of(1, 1, 5, 2, 1))) {
@@ -34,6 +40,8 @@ public class Exercises {
         System.out.println(ourSet);
 
         // Remove the element '1'
+        ourSet.remove(1);
+
         // Your code
 
         System.out.println(ourSet);
@@ -62,6 +70,10 @@ public class Exercises {
         fruitsSet.addAll(fruitsSet);
 
         //2a. What will this output? [Write your guesses in here]
+
+        //Avremo comunque un elenco disordinato dei soli cinque elementi singoli, in quanto l'HashSet
+        //non ammette doppioni.
+
         System.out.println(fruitsSet);
 
         List<String> fruitsList = List.of("apple", "banana", "grapes", "pear", "mango");
@@ -69,6 +81,9 @@ public class Exercises {
         fruitsSet.addAll(fruitsList);
 
         //2b. What will this output? [Write your guesses in here]
+        //Avremo un elenco disordinato degli elementi del set e della lista senza doppioni, in quanto
+        //stampiamo il set. Apple, banana, orange, kiwi, mango, grapes, pear.
+
         System.out.println(fruitsSet);
     }
 
@@ -78,13 +93,21 @@ public class Exercises {
     private static void exercise3() {
         // 3a. Find the min and max values in the Set below
         Set<Integer> numbers = Set.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-        int max = Integer.MAX_VALUE;
-        int min = Integer.MIN_VALUE;
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
 
 
         for (Integer number : numbers) {
             // Your code
+            if(number > max){
+                max = number;
+            }
+            if(number < min){
+                min = number;
+            }
         }
+
+        System.out.println(min + " " + max);
 
         if (max != 10 || min != 1) {
             System.out.println("3a. Incorrect min or max values");
@@ -97,6 +120,14 @@ public class Exercises {
         Set<Integer> itemsContainedInBothSets = new HashSet<>();
 
         // Your code
+
+        for(int i : setA){
+            if(setB.contains(i)){
+                itemsContainedInBothSets.add(i);
+            }
+        }
+
+
 
         if (!itemsContainedInBothSets.equals(Set.of(5, 6, 7, 8, 9, 10))) {
             System.out.println("3b. Incorrect number of items in itemsContainedInBothSets");
@@ -116,6 +147,11 @@ public class Exercises {
         //     you can use `break;` to exit the loop once you've found it!
         int min = Integer.MAX_VALUE;
         // Your code
+
+       for(int number : orderedNumbers){
+           min = Math.min(min, number);
+       }
+
 
         if (min != 1) {
             System.out.println("4a. Incorrect min value");
