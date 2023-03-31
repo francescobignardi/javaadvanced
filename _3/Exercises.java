@@ -1,4 +1,4 @@
-package javaadvanced.javaadvanced._3;
+package javaadvanced._3;
 
 import java.util.*;
 
@@ -21,6 +21,14 @@ public class Exercises {
 
         // Your code here
 
+        Set<String> listWithoutDuplicates = new HashSet<>(list);
+        list.clear();
+        list.addAll(listWithoutDuplicates);
+        System.out.println(list);
+
+
+
+
         if (list.size() == 3) {
             System.out.println("Exercise 1: Success");
         } else {
@@ -36,11 +44,19 @@ public class Exercises {
         // Your code here
         List<String> list = Arrays.asList("apple", "banana", "apple", "orange", "kiwi", "banana");
         Set<String> set = Set.of("apple", "banana");
-        // toSet(list); <-- uncomment
-        // toSet(set); <-- uncomment
+        Set<String> set1 = toSet(list);
+        Set<String> set2 = toSet(set);
+
+        System.out.println(set1);
+        System.out.println(set2);
     }
 
     // Write your method for exercise 2 here
+    public static Set<String> toSet(Collection<String> collection){
+        return new HashSet<>(collection);
+    }
+
+
 
 
     /**
@@ -56,7 +72,20 @@ public class Exercises {
         // from the Map and then increment it by 1, if no previous value exists, use 0 as the previous value.
 
         // Your code here
+
+       for(String parola : words){
+           if(!wordCount.containsKey(parola)){
+               wordCount.put(parola, 1);
+           } else {
+               wordCount.put(parola, wordCount.get(parola) + 1);
+           }
+       }
+        System.out.println(wordCount);
+
+
+
     }
+
 
     /**
      * 4: Answer the following questions
@@ -65,40 +94,40 @@ public class Exercises {
      *    and explain why you chose that data structure.
      *
      *    1 - You want to store the students in order of their arrival
-     *    Answer:
+     *    Answer: Userei una List
      *
      *    2 - You want to store the students in a class and their grades
-     *    Answer:
+     *    Answer: Userei una Map, dove la key è il nome dello studente e il value è un elenco dei suoi voti
      *
      *    3 - You want to store the countries in the world in order of age
-     *    Answer:
+     *    Answer: Userei una List
      *
      *    4 - You want to store the products available for purchase in an online store, along with their corresponding prices.
-     *    Answer:
+     *    Answer: Userei una Map, dove la key è il nome del prodotto e il value il suo prezzo
      *
      *    5 - You want to store the employees at a company in the order you added them
-     *    Answer:
+     *    Answer: Userei una List
      *
      *    6 - You want to store the cities in a particular state, along with their populations.
-     *    Answer:
+     *    Answer: Userei una Map, dove la key è il nome della città e il value è la sua popolazione
      *
      *    7 - You want to store the books in a library, along with their authors and publication dates.
-     *    Answer:
+     *    Answer: Userei una Map dove la key è il titolo del libro, e il value una List con autore e data di pubblicazione
      *
      *    8 - You want to store the courses offered at a university, along with the professors teaching each course.
-     *    Answer:
+     *    Answer: Userei una Map, scegliendo quale dei due valori impostare come key e quale come value
      *
      *    9 - You want to store the movies in a movie rental store, along with their ratings and release dates.
-     *    Answer:
+     *    Answer: Userei una Map con il titolo del film come key e una lista con rating e release date come value
      *
      *    10 - You want to store the flights available for booking on an airline, along with their destinations and departure times.
-     *    Answer:
+     *    Answer: Userei una List per flessibilità e rapidità?
      *
      *    11 - You want to store the articles on a news website, along with their titles and publication dates.
-     *    Answer:
+     *    Answer: Userei una Map
      *
      *    12 - You want to store the songs in a music streaming service, along with their artists and album names.
-     *    Answer:
+     *    Answer: Userei una Map
      */
 
 }
