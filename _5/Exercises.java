@@ -10,9 +10,9 @@ import java.util.Scanner;
 
 public class Exercises {
     public static void main(String[] args) {
-        //exercise1();
-        //exercise2();
-        //exercise3();
+        exercise1();
+        exercise2();
+        exercise3();
         exercise4();
     }
 
@@ -26,7 +26,8 @@ public class Exercises {
         try{
             Files.createFile(Path.of("Test.txt"));
         } catch (IOException e){
-            throw new RuntimeException(e);
+            System.out.println("Il file esiste già");
+            e.printStackTrace();
         }
     }
 
@@ -40,15 +41,13 @@ public class Exercises {
     private static void exercise2() {
         System.out.println("\nExercise 2: ");
         // Your code here
-        try {
-            String userInputFileName = "test-file.txt";
-            File file = new File(userInputFileName);
-            Scanner scanner = new Scanner(file);
-            System.out.println(scanner);
-        } catch (Exception exception){
-            System.err.println("Errore, file non trovato");
-            exception.printStackTrace();
-            System.exit(0);
+
+        String userInputFileName = "test-file.txt";
+
+        try{
+            Files.readString(Path.of(userInputFileName));
+        } catch (IOException ioException){
+            System.out.println("Crea un file");
         }
     }
 
@@ -61,20 +60,14 @@ public class Exercises {
      */
     private static void exercise3() {
         System.out.println("\nExercise 3: ");
-        // Your code here                         // Quale dei due metodi è più giusto?
-
-    //    try{
-    //        Integer.parseInt("house");
-    //    } catch (NumberFormatException numberFormatException){
-    //        throw new NumberFormatException("Impossibile convertire la stringa in integer");
-    //    }
-
+        // Your code here
         try{
             Integer.parseInt("house");
         } catch (NumberFormatException numberFormatException){
-            numberFormatException.printStackTrace();
+            System.out.println("Impossibile convertire la stringa in integer");
         }
-        throw new NumberFormatException("Impossibile convertire la stringa in integer");
+
+
     }
 
     /**
@@ -91,20 +84,21 @@ public class Exercises {
         System.out.println("\nExercise 4: ");
         // Your code here
 
-        Double num1 = 10.0;
-        String num2AsString = "0.0";
-        Double result = num1/Double.parseDouble(num2AsString);
+        Integer num1 = 10;
+        String num2AsString = "0";
+        int result = 0;
 
         try{
+            result = num1/Integer.parseInt(num2AsString);
             System.out.println(result);
         } catch (NumberFormatException numberFormatException){
-            throw new NumberFormatException("Impossibile castare stringa in double");
-        } catch (Exception exception){
-            if (result.isInfinite()){
-                System.out.println("Impossibile dividere per zero");
+            System.out.println("Impossibile castare stringa in integer");
+        } catch (ArithmeticException e){
+            System.out.println("Impossibile dividere per zero");
             }
         }
         // Your catch blocks here
 
     }
-}
+
+
